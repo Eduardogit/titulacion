@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'sqlsrv'),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,6 +77,18 @@ return [
             'prefix' => '',
             'schema' => 'public',
         ],
+        //AGREGANDO CONEXION A SQL SERVER
+         'sqlsrv' => [
+            'driver' => 'sqlsrv',
+            'host' => env('DB_HOST', 'localhost'),
+            'database' => env('DB_DATABASE', 'SCE2005'),
+            'username' => env('DB_USERNAME', 'LARAVEL'),
+            'password' => env('DB_PASSWORD', 'werd7895'),
+            'charset' => 'utf8',
+            'prefix' => '',
+        ],
+
+
 
     ],
 
