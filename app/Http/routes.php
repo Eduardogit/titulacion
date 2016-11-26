@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return redirect('/home');
+    return redirect('/inicio');
 });
+
 
 
 /*
@@ -30,5 +31,8 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
 
 
 Route::auth();
+Route::get('/inicio', 'HomeController@index');
+//RUTA DEL TITULO
+Route::get('/titulo', 'TitulacionController@index');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/titulo/{matricula}', 'TitulacionController@titulo');

@@ -1,0 +1,16 @@
+para modificar rutas 
+app->http->routes.php
+
+controladores estan en 
+app->http->Controllers ->*
+
+
+nombre controller   -> funcion
+HomeController      @  index
+
+crear un controlador nuevo
+php artisan make:controller NombreController
+
+
+modificar/crear vista 
+resources -> views -> miarchivo.blade.php
