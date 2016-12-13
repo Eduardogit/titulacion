@@ -11,6 +11,7 @@
                     <a href="{{ url('/titulo') }}" class="btn btn-primary">
                         Consultar titulos
                     </a>
+                     
                 </div>
             </div>
         </div>
