@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.13/js/dataTables.material.min.js"></script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.material.min.css">
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">

@@ -1,13 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-use HTML2PDF;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
+use PDF;
+use App\Http\Controllers\App;
 
 class TitulacionController extends Controller
 {
+    
+    
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
 	//TODAS LAS MATRICULAS PARA TITULACION
 	public function index()
     {
@@ -25,19 +33,22 @@ class TitulacionController extends Controller
         return view('titulacion/index', ['alumnos' => $alumnos, 'generaciones' => $generaciones]);
     }
 
-    public function titulo($matricula)
+
+      public function titulo($matricula)
     {
 
     	$alumno = DB::select('select * from Alumnos where Matricula = '.$matricula.'');
+        $titulo = DB::select('select * from Alumnos where Matricula = '.$matricula.'');
+        $carrera = DB::select('select * from Carreras where IDCarrera = '.$titulo[0]->Carrera.'');
+       
+        
+       
+        //return view('titulacion.titulo', ['datos' => $titulo, 'carrera' => $carrera]);
+        
 
-    	$html2pdf = new HTML2PDF('P','LEGAL','de',false,'UTF-8');
-		$doc = "<page><h1>".$alumno[0]->Nombre."</h1></page>";
-		$html2pdf->setDefaultFont('Arial');
-		$html2pdf->writeHTML($doc,false);
-		$html2pdf->Output('helloworld.pdf');
-		//$html2pdf->Output(base_path().'/storage/app/helloworld.pdf','F');
-		echo "aqui";
-        //return view('titulacion/titulo', ['alumno' => $alumno] );
+        $pdf = PDF::loadView('titulacion.titulo', ['datos' => $titulo, 'carrera' => $carrera]);
+        
+        return $pdf->stream('invoice.pdf');
     }
 
 }

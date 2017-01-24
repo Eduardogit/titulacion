@@ -36,3 +36,7 @@ Route::get('/inicio', 'HomeController@index');
 Route::get('/titulo', 'TitulacionController@index');
 
 Route::get('/titulo/{matricula}', 'TitulacionController@titulo');
+
+
+
+Route::resource('datosActas', 'datosActaController');

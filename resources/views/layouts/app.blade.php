@@ -1,140 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
 
-    <title>Laravel</title>
+        
 
-    <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet'
-          type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+        <title>Velonic - Responsive Admin Dashboard Template</title>
 
-    <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/css/bootstrap-toggle.min.css">
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/dataTables.material.min.js"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.material.min.css">
 
-    <!-- DataTable Bootstrap -->
-    <link href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-    <link href="http://blackrockdigital.github.io/startbootstrap-simple-sidebar/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://blackrockdigital.github.io/startbootstrap-simple-sidebar/css/simple-sidebar.css"
-          rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css">
+        <!-- Bootstrap core CSS -->
+        {{ Html::style('global-assets/css/bootstrap.min.css') }}
+         {{ Html::style('global-assets/css/bootstrap-reset.css') }}
 
-    <style type="text/css">
-        .sidebar-nav li.active > a,
-        .sidebar-nav li > a:focus {
-            text-decoration: none;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.2);
-        }
+        <!--Animation css-->
+         {{ Html::style('global-assets/css/animate.css') }}
 
-        .header {
-            width: 100%;
-            background: #e7e7e7;
-            color: #fff;
-            height: 50px;
+        <!--Icon-fonts css-->
+         {{ Html::style('global-assets/assets/font-awesome/css/font-awesome.css') }}
+         {{ Html::style('global-assets/assets/ionicon/css/ionicons.min.css') }}
 
-        }
-    </style>
-</head>
-<body id="app-layout">
+        <!--Morris Chart CSS -->
+         {{ Html::style('global-assets/assets/morris/morris.css') }}
 
-@if (Auth::guest())
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+        <!-- sweet alerts -->
+         {{ Html::style('global-assets/assets/sweet-alert/sweet-alert.min.css') }}
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <!-- Custom styles for this template -->
+         {{ Html::style('global-assets/css/style.css') }}
+         {{ Html::style('global-assets/css/helper.css') }}
+        
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    InfyOm Generator
-                </a>
+  
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+
+
+    </head>
+
+
+    <body>
+
+        @if (Auth::guest())
+            <div class="col-md-10 col-md-offset-2">
+                @yield('content')
             </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-@else
-    <div id="wrapper" class="">
-        <!-- Sidebar -->
+        @else
+        <!-- Aside Start-->
         @include('layouts.sidebar')
-        <header class="header">
-            <a href="#menu-toggle"
-               style="margin-top: 8px;margin-left: 5px;background-color: #E7E7E7;border-color: #E7E7E7"
-               class="btn btn-default" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        <!-- Aside Ends-->
 
-            <span class="pull-right" style="margin-right: 10px;margin-top: 15px">
-                <a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
-            </span>
-        </header>
-    </div>
-@endif
 
-<!-- Page Content -->
-<div id="page-content-wrapper">
+        <!--Main Content Start -->
+        <section class="content">
+            
+            <!-- Header -->
+            <!-- Header Ends -->
+            @include('layouts.header')
 
-    <div class="container-fluid">
+            <!-- Page Content Start -->
+            <!-- ================== -->
 
-        <div class="row">
-            @if (config('infyom.laravel_generator.add_on.menu.enabled') and !Auth::guest())
-                <div class="col-md-10 col-md-offset-2">
-                    @yield('content')
-                </div>
-            @else
-                <div class="col-md-12">
-                    @yield('content')
-                </div>
-            @endif
-        </div>
-    </div>
-</div>
-<!-- /#page-content-wrapper -->
+            <div class="wraper container-fluid">
+                @yield('content')
+            </div>
+            <!-- Page Content Ends -->
+            <!-- ================== -->
 
-<script src="http://blackrockdigital.github.io/startbootstrap-simple-sidebar/js/jquery.js"></script>
-<script src="http://blackrockdigital.github.io/startbootstrap-simple-sidebar/js/bootstrap.min.js"></script>
-<!-- JavaScripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/js/bootstrap-toggle.min.js"></script>
+            <!-- Footer Start -->
+            <footer class="footer">
+                Powered by Glosbe
+            </footer>
+            <!-- Footer Ends -->
 
-<!-- Datatables -->
-<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.colVis.min.js"></script>
 
-<script>
+        @endif
+        </section>
+        
+        <!-- Main Content Ends -->
+        
+    
 
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+        <!-- js placed at the end of the document so the pages load faster -->
+        {{ Html::script('global-assets/js/jquery.js') }}
+        {{ Html::script('global-assets/js/bootstrap.min.js') }}
+        {{ Html::script('global-assets/js/modernizr.min.js') }}
+        {{ Html::script('global-assets/js/pace.min.js') }}
+        {{ Html::script('global-assets/js/wow.min.js') }}
+        {{ Html::script('global-assets/js/jquery.scrollTo.min.js') }}
+        {{ Html::script('global-assets/js/jquery.nicescroll.js') }}
 
-</script>
+        <!-- Counter-up -->
+        {{ Html::script('global-assets/js/waypoints.min.js') }}
+        {{ Html::script('global-assets/js/jquery.counterup.min.js') }}
 
-@yield('scripts')
+         <!-- sparkline --> 
+        {{ Html::script('global-assets/assets/sparkline-chart/jquery.sparkline.min.js') }}
+        {{ Html::script('global-assets/assets/sparkline-chart/chart-sparkline.js') }}
 
-</body>
+        <!-- skycons -->
+        {{ Html::script('global-assets/js/skycons.min.js') }}
+    
+        <!--Morris Chart-->
+        {{ Html::script('global-assets/assets/morris/morris.min.js') }}
+        {{ Html::script('global-assets/assets/morris/raphael.min.js') }}
+
+
+        {{ Html::script('global-assets/js/jquery.app.js') }}
+        
+        <!-- Dashboard -->
+        {{ Html::script('global-assets/js/jquery.dashboard.js') }}
+
+
+
+
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                /* Counter Up */
+                $('.counter').counterUp({
+                    delay: 100,
+                    time: 1200
+                });
+            });
+            /* BEGIN SVG WEATHER ICON */
+            if (typeof Skycons !== 'undefined'){
+            var icons = new Skycons(
+                {"color": "#fff"},
+                {"resizeClear": true}
+                ),
+                    list  = [
+                        "clear-day", "clear-night", "partly-cloudy-day",
+                        "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                        "fog"
+                    ],
+                    i;
+
+                for(i = list.length; i--; )
+                icons.set(list[i], list[i]);
+                icons.play();
+            };
+        </script>
+
+    
+
+    </body>
 </html>
